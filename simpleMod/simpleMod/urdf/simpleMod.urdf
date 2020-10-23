@@ -1,0 +1,236 @@
+<?xml version="1.0" ?>
+<robot name="simpleMod">
+
+<material name="silver">
+  <color rgba="0.700 0.700 0.700 1.000"/>
+</material>
+
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.245 0.36548780487804877 0.07317073170731707"/>
+    <mass value="6.436999999999999"/>
+    <inertia ixx="0.2609357869918649" ixy="0.0" ixz="0.0" iyy="0.17940329369918712" iyz="-0.07096189390243904" izz="0.2961017766260119"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+        <mesh filename="package://simpleMod/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+        <mesh filename="package://simpleMod/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component41">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.045 -1.1102230246251565e-16 5.574033788925725e-17"/>
+    <mass value="49.93954221962675"/>
+    <inertia ixx="0.561819849970794" ixy="2.220446049250313e-16" ixz="6.631284276962375e-17" iyy="0.3146191159836522" iyz="3.655441105365732e-16" izz="0.3146191159836391"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.1 -0.55 0.0"/>
+    <geometry>
+      <mesh filename="package://simpleMod/meshes/Component41.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.1 -0.55 0.0"/>
+    <geometry>
+      <mesh filename="package://simpleMod/meshes/Component41.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component31">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.045 2.2874165333815423e-17 4.551914400963141e-17"/>
+    <mass value="49.93954221962675"/>
+    <inertia ixx="0.5618198499707928" ixy="2.8558133635670037e-17" ixz="1.462756169494998e-16" iyy="0.31461911598365244" iyz="-1.827720552682897e-16" izz="0.3146191159836359"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.1 -0.0 0.0"/>
+    <geometry>
+      <mesh filename="package://simpleMod/meshes/Component31.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.1 -0.0 0.0"/>
+    <geometry>
+      <mesh filename="package://simpleMod/meshes/Component31.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component21">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.04499999999999993 2.2874165333815423e-17 5.574033788925725e-17"/>
+    <mass value="49.93954221962675"/>
+    <inertia ixx="0.5618198499707923" ixy="5.711626727134089e-18" ixz="6.631284276962395e-17" iyy="0.3146191159836551" iyz="3.655441105365744e-16" izz="0.3146191159836391"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.39 -0.0 -0.0"/>
+    <geometry>
+      <mesh filename="package://simpleMod/meshes/Component21.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.39 -0.0 -0.0"/>
+    <geometry>
+      <mesh filename="package://simpleMod/meshes/Component21.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component11">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.044999999999999984 0.0 5.329070518200751e-17"/>
+    <mass value="49.93954221962674"/>
+    <inertia ixx="0.5618198499707869" ixy="-1.7763568394002505e-15" ixz="1.6109597928325866e-16" iyy="0.31461911598365155" iyz="1.099924501033629e-15" izz="0.31461911598362846"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.39 -0.55 -0.0"/>
+    <geometry>
+      <mesh filename="package://simpleMod/meshes/Component11.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.39 -0.55 -0.0"/>
+    <geometry>
+      <mesh filename="package://simpleMod/meshes/Component11.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component81">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.12 0.2977765984182449 0.27896241286634416"/>
+    <mass value="237.25839999999997"/>
+    <inertia ixx="20.269401646980498" ixy="7.105427357601002e-15" ixz="0.0" iyy="1.293595177343363" iyz="-0.07330545130702504" izz="20.588476976303795"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.12 -0.0 -0.01"/>
+    <geometry>
+      <mesh filename="package://simpleMod/meshes/Component81.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.12 -0.0 -0.01"/>
+    <geometry>
+      <mesh filename="package://simpleMod/meshes/Component81.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rev1" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.1 0.55 0.0"/>
+  <parent link="base_link"/>
+  <child link="Component41"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<transmission name="Rev1_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Rev1">
+    <hardwareInterface>EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Rev1_actr">
+    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<joint name="Rev2" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.1 0.0 0.0"/>
+  <parent link="base_link"/>
+  <child link="Component31"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<transmission name="Rev2_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Rev2">
+    <hardwareInterface>EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Rev2_actr">
+    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<joint name="Rev3" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.39 0.0 0.0"/>
+  <parent link="base_link"/>
+  <child link="Component21"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<transmission name="Rev3_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Rev3">
+    <hardwareInterface>EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Rev3_actr">
+    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<joint name="Rev4" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.39 0.55 0.0"/>
+  <parent link="base_link"/>
+  <child link="Component11"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<transmission name="Rev4_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Rev4">
+    <hardwareInterface>EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Rev4_actr">
+    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<joint name="Rev5" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.12 0.0 0.01"/>
+  <parent link="base_link"/>
+  <child link="Component81"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<transmission name="Rev5_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Rev5">
+    <hardwareInterface>EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Rev5_actr">
+    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<gazebo>
+    <plugin name="gazebo_ros_control" filename= "libgazebo_ros_control.so">
+        <robotNamespace>/simple_model</robotNamespace>
+    </plugin>
+</gazebo>
+
+</robot>
