@@ -8,7 +8,7 @@
     </include-->
 
     <include>
-      <uri>model://ground_plane</uri>
+      <uri>model://Heightmap</uri>
     </include>
 
     <!-- Global light source -->
