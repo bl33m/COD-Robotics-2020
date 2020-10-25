@@ -12,34 +12,39 @@
     <arg name="verbose" value="true"/>
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find simpleMod)/worlds/simple.world"/>
-    <arg name="paused" value="$(arg paused)"/>
-    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
-    <arg name="gui" value="$(arg gui)"/>
-    <arg name="headless" value="$(arg headless)"/>
-    <arg name="debug" value="$(arg debug)"/>
-    <!--by activating "verbose" mode, Gazebo prints more to terminal on launch.-->
-    <arg name="verbose" value="$(arg verbose)"/>
+      <arg name="world_name" value="$(find simpleMod)/worlds/simple.world"/>
+      <arg name="paused" value="$(arg paused)"/>
+      <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+      <arg name="gui" value="$(arg gui)"/>
+      <arg name="headless" value="$(arg headless)"/>
+      <arg name="debug" value="$(arg debug)"/>
+      <!--by activating "verbose" mode, Gazebo prints more to terminal on launch.-->
+      <arg name="verbose" value="$(arg verbose)"/>
     </include>
-
-    <param name="robot_description" textfile="$(find simpleMod)/urdf/simpleMod.urdf"/>
     
-    <!-- initial robot pos-->
+    <!-- Setting the position of the robot at spawn -->
     <arg name="x" default="0"/>
     <arg name="y" default="0"/>
     <arg name="z" default="1"/>
     <arg name="roll" default="0"/>
     <arg name="pitch" default="0"/>
     <arg name="yaw" default="0"/>
-
+	
+    <!-- Creates a node using gazebo -->	
+  
+    <!-- Loads the robot urdf file -->
+    <param name="simple_model/robot_description" command="$(find xacro)/xacro --inorder '$(find simpleMod)/urdf/simpleMod.urdf'"/>
+    
+    <!-- Creates a node for the urdf spawner -->
+    <!-- Passes through the arguments for the x, y, z coordinates -->
     <node name="urdf_spawner" 
           pkg="gazebo_ros" 
           type="spawn_model" 
-          respawn="false" 
-          output="screen" 
-          args="-urdf -model simple_model -param robot_description
-          -x $(arg x) -y $(arg y) -z $(arg z)
-          -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
+          respawn="false"
+          output="screen"
+          ns = "simple_model"
+          args="-urdf -model simple_model -param robot_description -x $(arg x) -y $(arg y) -z $(arg z)
+              -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
 
     <!-- load the controllers -->
     <rosparam file="$(find simpleMod)/config/config.yaml" command="load"/>
@@ -47,15 +52,20 @@
     <node name="controller_spawner" 
           pkg ="controller_manager" 
           type="spawner" 
-          ns="/simple_model" 
-          args="Rev1_position_controller Rev2_position_controller Rev3_position_controller Rev4_position_controller Rev5_position_controller joint_state_controller"/>
+          ns="/simple_model"
+          respawn="false"
+          output="screen"
+          args="Rev5_position_controller diff_drive_controller joint_state_controller"/>
 
     <!-- converts joint states to TF transforms -->
     <node name="robot_state_publisher" 
           pkg="robot_state_publisher" 
-          type="robot_state_publisher" 
-          respawn="false" 
+          type="robot_state_publisher"
+          ns="simple_model"
+          respawn="false"
           output="screen">
+          <param name="rate" value="50"/>  
         <remap from="joint_states" to="/simple_model/joint_states"/>
     </node>
+
 </launch>

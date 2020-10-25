@@ -64,9 +64,9 @@
     <material/>
   </visual>
   <collision>
-    <origin rpy="0 0 0" xyz="0.1 -0.0 0.0"/>
+    <origin rpy="0 1.5708 0" xyz="0.1 -0.0 0.0"/>
     <geometry>
-      <mesh filename="package://simpleMod/meshes/Component31.stl" scale="0.001 0.001 0.001"/>
+      <cylinder radius=".15" length=".09"/>
     </geometry>
   </collision>
 </link>
@@ -147,10 +147,10 @@
 <transmission name="Rev1_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Rev1">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
   </joint>
   <actuator name="Rev1_actr">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>VelocityJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>
 </transmission>
@@ -165,10 +165,10 @@
 <transmission name="Rev2_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Rev2">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>VelocityJointInterface</hardwareInterface>
   </joint>
   <actuator name="Rev2_actr">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>VelocityJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>
 </transmission>
@@ -183,10 +183,10 @@
 <transmission name="Rev3_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Rev3">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>VelocityJointInterface</hardwareInterface>
   </joint>
   <actuator name="Rev3_actr">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>VelocityJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>
 </transmission>
@@ -201,10 +201,10 @@
 <transmission name="Rev4_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Rev4">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>VelocityJointInterface</hardwareInterface>
   </joint>
   <actuator name="Rev4_actr">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>VelocityJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>
 </transmission>
@@ -219,17 +219,35 @@
 <transmission name="Rev5_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Rev5">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
   </joint>
   <actuator name="Rev5_actr">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>
 </transmission>
 
 <gazebo>
+  <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+    <updateRate>100.0</updateRate>
+    <robotNamespace>/simple_model</robotNamespace>
+    <leftFrontJoint>Rev2</leftFrontJoint>
+    <rightFrontJoint>Rev3</rightFrontJoint>
+    <leftRearJoint>Rev1</leftRearJoint>
+    <rightRearJoint>Rev4</rightRearJoint>
+    <wheelSeparation>0.6</wheelSeparation>
+    <wheelDiameter>0.3</wheelDiameter>
+    <robotBaseFrame>base_link</robotBaseFrame>
+    <torque>2000</torque>
+    <topicName>cmd_vel</topicName>
+    <broadcastTF>false</broadcastTF>
+  </plugin> 
+</gazebo>
+
+<gazebo>
     <plugin name="gazebo_ros_control" filename= "libgazebo_ros_control.so">
         <robotNamespace>/simple_model</robotNamespace>
+        <rosparam>/robot_description</rosparam>   
     </plugin>
 </gazebo>
 
