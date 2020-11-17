@@ -3,7 +3,7 @@
 Simulation package for the 2020 NASA Lunabotics competition.
 
 URDF file ported from Fusion360 via https://github.com/yanshil/Fusion2PyBullet.
-
+![rover](/2020-10-26_19-07.png) 
 Prereqs:
 
 Place the heightmap folder into .gazebo/models
