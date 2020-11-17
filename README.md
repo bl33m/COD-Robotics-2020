@@ -5,7 +5,8 @@ Simulation package for the 2020 NASA Lunabotics competition.
 URDF file ported from Fusion360 via https://github.com/yanshil/Fusion2PyBullet.
 
 Prereqs:
-Place the height map folder into .gazebo/models
+
+Place the heightmap folder into .gazebo/models
 
 ```
 sudo apt-get install ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control
