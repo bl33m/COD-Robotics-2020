@@ -23,6 +23,6 @@ Controller support prereqs
 
 Starting the simulation with controller support
 
-1. launch the simulation
+1. `roslaunch package_name file.launch`
 2. `rosrun joy joy_node`
 3. `rosrun simpleMod main.py`
